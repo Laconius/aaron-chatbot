@@ -1,143 +1,61 @@
-Aaron Chatbot
+Aaron AI Chatbot
 
-A retrieval-augmented generation (RAG) chatbot built with Python, Flask, LangChain, FAISS, and the OpenAI API.
+A personal AI chatbot that answers questions using information from my documents. Built with Python, LangChain, OpenAI, and FAISS.
 
-The application answers questions using a private knowledge base while combining semantic search with an OpenAI language model to generate natural-language responses.
+Live site: https://akrizikairesponse.com
+
+Tech Stack
+
+Python / Flask – Web application
+
+OpenAI GPT-6 Luna (gpt-6-luna) – Chat model
+
+OpenAI Embeddings – Document embeddings
+
+LangChain – Retrieval and question-answering
+
+FAISS – Local vector database
+
+PythonAnywhere – Hosting
+
+GitHub – Version control
 
 How It Works
 
-The application follows a basic RAG architecture:
+Documents are converted into embeddings and stored in FAISS.
 
-User Question
-      ↓
-Flask Web Application
-      ↓
-OpenAI Embeddings
-      ↓
-FAISS Vector Search
-      ↓
-Relevant Knowledge Retrieved
-      ↓
-OpenAI Language Model
-      ↓
-Generated Answer
+A user submits a question through the Flask web interface.
 
-Rather than relying solely on information contained in the language model, the chatbot retrieves relevant information from a private document collection before generating its response.
+LangChain retrieves relevant document passages.
 
-Technology Stack
-
-Python
-
-Flask
-
-LangChain
-
-FAISS
-
-OpenAI API
-
-OpenAI Embeddings
-
-HTML / CSS
-
-PythonAnywhere
+The OpenAI model generates a response using the retrieved context.
 
 Project Structure
 
-app.py
+chatbot/
+├── app.py
+├── chatbot.py
+├── templates/
+│   └── index.html
+├── static/
+│   └── style.css
+├── vectorstore/       # Local, excluded from Git
+└── .gitignore
 
-Runs the Flask web application and handles requests from the browser.
+Configuration
 
-chatbot.py
+Requires an OPENAI_API_KEY environment variable and a locally generated FAISS vector store.
 
-Contains the RAG pipeline, including document embeddings, FAISS retrieval, and OpenAI model integration.
-
-templates/
-
-Contains the HTML interface.
-
-static/
-
-Contains CSS and other static website assets.
-
-The private knowledge documents and generated FAISS vector database are intentionally excluded from this public repository.
-
-Security
-
-API credentials are stored in environment variables using a .env file.
-
-The .env file is excluded from Git through .gitignore and should never be committed to a public repository.
-
-Private source documents and the generated vector store are also excluded.
-
-Running the Application
-
-Create a Python virtual environment and install the required dependencies.
-
-Create a .env file containing:
-
-OPENAI_API_KEY=your_api_key_here
-
-The application expects private knowledge documents to be available locally and uses them to build or load the FAISS vector store.
-
-Run the Flask application:
-
-python app.py
-
-Current Model
-
-The chatbot currently uses OpenAI gpt-4o-mini for response generation.
-
-OpenAI embeddings are used to convert the private knowledge base and user queries into vector representations for semantic retrieval.
-
-Purpose
-
-This project was created as a practical exercise in building an AI-powered application using retrieval-augmented generation.
-
-It demonstrates several concepts used in modern AI systems:
-
-LLM API integration
-
-Retrieval-augmented generation (RAG)
-
-Vector embeddings
-
-Semantic search
-
-Vector databases
-
-Environment-variable secret management
-
-Flask web application development
-
-Deployment of an AI application
-
-Git/GitHub source control
-
-Future Improvements
-
-Potential improvements include:
-
-Migrating to OpenAI's current Responses API
-
-Model routing and automatic provider fallback
-
-Support for multiple LLM providers
-
-Improved observability and error logging
-
-Automated model-deprecation monitoring
-
-Conversation memory
-
-Streaming responses
-
-More sophisticated retrieval and ranking
-
-Automated knowledge-base updates
+API keys and personal source documents are excluded from GitHub.
 
 Deployment
 
-The current application is deployed using PythonAnywhere.
+Hosted on PythonAnywhere. Code changes are managed through Git and GitHub, with application reloads performed through the PythonAnywhere dashboard.
 
-The public repository contains the application source code while API credentials, private knowledge documents, and vector indexes remain outside source control.
+Status
+
+October 2026: Operational. Updated chat model from GPT-4o mini to GPT-6 Luna.
+
+Repository
+
+https://github.com/Laconius/aaron-chatbot
