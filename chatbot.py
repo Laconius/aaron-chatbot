@@ -22,7 +22,7 @@ def get_qa_bot():
     vectorstore_path = "/home/akrizik/chatbot/vectorstore"
     vectorstore = FAISS.load_local(vectorstore_path, embedding, allow_dangerous_deserialization=True)
     qa = RetrievalQA.from_chain_type(
-        llm=ChatOpenAI(model="gpt-4o-mini"),
+        llm = ChatOpenAI(model="gpt-6-luna"),
         chain_type="stuff",
         retriever=vectorstore.as_retriever()
     )
